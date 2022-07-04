@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>PQSAR</title>
+    
+<!--my css-->
+    <link rel="stylesheet" href="./css/mycss.css"  type="text/css">
+
+    <!-- jQuery and Modernizr-->
+    <script src="js/jquery-2.1.1.js"></script>
+    
+    
+    <!-- Core JavaScript Files -->       
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body id='body_one'>
+
+<div id=main_body>
+
+<!-- top部分 -->
+<div id="toppage"> </div>
+<script type="text/javascript">
+    $("#toppage").load('./top.html');
+</script>
+
+<!-- =================================================================  搜索框部分   ===================================-->
+<div id="search" class="search-box">
+
+                   <span id="tab">
+                       <button type="button" id="tab1" class="search_button">search by name</button> 
+                   </span>
+
+                   <div id="searchcontainer">
+                       <div id="searchbyname">
+                            <form action="./search/peptides.php" method="get" autocomplete="off" style="width:100%;">
+                            <input type="text" 
+                            name="pname" class ="autosearch" autocomplete="on"  placeholder="Peptides name" >
+                            <input class="submitcss" type="submit" value="Search"  >
+                            </form>           
+                        </div>
+                    </div>
+</div>
+<div class="search-note">
+ <p>Note:Click search to find all bioactive peptides</p>
+    
+ </div>
+<!--================================================================介绍部分===========================================================================-->
+<hr>
+<div class="title_one">How to search peptides?</div>
+<ul>
+    <li>Search by name:<br>You can search for active peptide information by the name of the active peptide dataset.e.g.,"bitter-tasting threshold dipeptides" or "b".</li>
+    
+</ul>
+
+<!--================================================================= 页脚部分=======================================================================-->
+<!-- Footer -->
+
+<div id="footerpage"></div>
+<script type="text/javascript">
+    $("#footerpage").load('./footer.html');
+</script>
+
+</div>
+</body>
+</html>

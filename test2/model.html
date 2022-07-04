@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>PQSAR</title>
+	
+<!--my css-->
+    <link rel="stylesheet" href="./css/mycss.css"  type="text/css">
+
+	<!-- jQuery and Modernizr-->
+	<script src="js/jquery-2.1.1.js"></script>
+	
+	
+	<!-- Core JavaScript Files -->  	 
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body id='body_one'>
+
+<div id=main_body>
+
+    <!--============================================================  Top部分  ============================================================-->
+   <div id="toppage"> </div>
+<script type="text/javascript">
+    $("#toppage").load('./top.html');
+</script>
+
+    <!-- =================================================================  搜索框部分   ===================================-->
+<div id="search" class="search-box">
+
+                   <span id="tab">
+                       <button type="button" id="tab1" class="search_button">search by AAname</button> 
+                       <button type="button" id="tab2" class="search_button">search by BPname</button>
+                   </span>
+
+                   <div id="searchcontainer">
+                       <div id="searchbyname">
+                            <form action="./search/aamodel.php" method="get" autocomplete="off" style="width:100%;">
+                            <input type="text" 
+                            name="aname" class ="autosearch" autocomplete="on"  placeholder="AA name" >
+                            <input class="submitcss" type="submit" value="Search"  >
+                            </form>           
+                        </div>
+
+                        <div id="searchbyliterature" class="searchcontainer" style="display: none;">
+                            <form action="./search/bpmodel.php" method="get" autocomplete="off" style="width:100%;">
+                            <input type="text" name="pname" class ="autosearch" autocomplete="on"  placeholder="BP name" style="color: #999999;">
+                            <input class="submitcss" type="submit" value="Search" >
+                        </form>
+                        </div>
+
+                        <script type="text/javascript">
+                    var $search = $('#searchcontainer>div')
+                    var $bu = $('#tab>button')
+                    var currIndex = 0//当前显示的内容div的下标
+                       //给3个li加监听
+                       $('#tab>button').click(function(){
+                           //alert('---')
+                           //隐藏当前已经显示的内容div
+                           $search[currIndex].style.display = 'none'
+                           //显示对应内容的div
+                           //得到当前点击的li在兄弟中下标
+                           var index = $(this).index()
+                           //找到对应的内容div
+                           $search[index].style.display = 'block'
+                           for (var i = 0; i < 2; i++) {
+                               $bu[i].style.cssText="background-image: linear-gradient(to bottom,#29bdd9 0%,#276ace 100%);"
+                           }
+                           $bu[index].style.cssText="background-color:#5599ff;background-image:none;";
+                           // $($search[index]).css('display','block')
+                        //更新下标
+                        currIndex = index
+                       })
+                   </script> 
+                    </div>
+</div>
+<div class="search-note">
+ <p>Note:Click search to find all peptide QSAR models</p>
+    
+ </div>
+ <hr>
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////HomePage///////////////////////-->
+	<!--//////////////////////////////////////////////////-->
+				
+	<div style="width:100%;height: auto;margin-top: 10px;font-size: 18px;">
+            <h2 style="text-align: center;">What is QSAR model ?</h2>
+            <!-- <div style="width: 416px;height: 300px;float: left;">  
+               <img src="images/aad.jpg">
+            </div>
+
+            -->
+
+
+            <div >
+                <ul>
+                 <li>QSAR(Quantitative structure–activity relationship) refers to the structure-activity relationship of a specified quantity, which uses a mathematical model to describe the relationship between the molecular structure and a certain biological activity of the molecule.</li>
+                 <br>
+                 <li>The model in this database is based on the characterization of active peptides by amino acid descriptors and is called peptide QSAR.Common models include PLS, MLR, GA-PLS and so on</li>
+                 <br>
+                 <li style="font-weight: bold;">A summary of QASR model in the database</li>
+                 <img src="images/index3.jpg" >
+                 <br>
+                 <li style="font-weight:bold;">A 3D statistical graph</li>
+                 <img src="./images/index6.png">
+                 </ul> 
+            </div>
+
+           </div>   
+
+    
+	
+<!-- Footer -->
+
+ <div id="footerpage"></div>
+<script type="text/javascript">
+    $("#footerpage").load('./footer.html');
+</script>
+
+</div>
+</body>
+</html>
